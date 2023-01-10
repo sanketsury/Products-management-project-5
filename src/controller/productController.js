@@ -20,7 +20,7 @@ const createProduct = async function (req, res) {
     const product = await productModel.create(data)
 
     return res.status(201).send({ status: true, message: "product created successfully", data: product })
-
+  
   }
   catch (err) {
     return res.status(500).send({ status: false, message: err.message })
@@ -49,6 +49,7 @@ const getbyquery = async function (req, res) {
       let { name, size, priceGreaterthan, priceLessthan, priceSort } = data
 
       let condition = { isDeletd: false };
+      
 
       if (name != null) {
         if (!isValidBody(name)) {
